@@ -1,0 +1,276 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom F1 colors as CSS variables */
+:root {
+  --caramel: #be7c4d;
+  --pennred: #92140c;
+  --jet: #353238;
+  --jasper: #be5a38;
+  --silver: #c1b4ae;
+}
+
+/* Custom F1 animations */
+@keyframes race-stripe {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes speed-lines {
+  0% {
+    transform: translateX(-100%) scaleX(0);
+  }
+  50% {
+    transform: translateX(0%) scaleX(1);
+  }
+  100% {
+    transform: translateX(100%) scaleX(0);
+  }
+}
+
+.animate-race-stripe {
+  animation: race-stripe 2s linear infinite;
+}
+.animate-slide-in-left {
+  animation: slide-in-left 0.6s ease-out;
+}
+.animate-slide-in-right {
+  animation: slide-in-right 0.6s ease-out;
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out;
+}
+.animate-speed-lines {
+  animation: speed-lines 1.5s ease-in-out infinite;
+}
+
+/* F1 Color Classes */
+.bg-caramel {
+  background-color: var(--caramel);
+}
+.bg-pennred {
+  background-color: var(--pennred);
+}
+.bg-jet {
+  background-color: var(--jet);
+}
+.bg-jasper {
+  background-color: var(--jasper);
+}
+.bg-silver {
+  background-color: var(--silver);
+}
+
+.text-caramel {
+  color: var(--caramel);
+}
+.text-pennred {
+  color: var(--pennred);
+}
+.text-jet {
+  color: var(--jet);
+}
+.text-jasper {
+  color: var(--jasper);
+}
+.text-silver {
+  color: var(--silver);
+}
+
+.border-caramel {
+  border-color: var(--caramel);
+}
+.border-pennred {
+  border-color: var(--pennred);
+}
+.border-jet {
+  border-color: var(--jet);
+}
+.border-jasper {
+  border-color: var(--jasper);
+}
+.border-silver {
+  border-color: var(--silver);
+}
+
+.border-l-caramel {
+  border-left-color: var(--caramel);
+}
+.border-l-pennred {
+  border-left-color: var(--pennred);
+}
+.border-l-jet {
+  border-left-color: var(--jet);
+}
+.border-l-jasper {
+  border-left-color: var(--jasper);
+}
+.border-l-silver {
+  border-left-color: var(--silver);
+}
+
+.ring-pennred {
+  --tw-ring-color: var(--pennred);
+}
+.ring-caramel {
+  --tw-ring-color: var(--caramel);
+}
+.ring-jasper {
+  --tw-ring-color: var(--jasper);
+}
+
+.hover\:text-pennred:hover {
+  color: var(--pennred);
+}
+.hover\:text-caramel:hover {
+  color: var(--caramel);
+}
+.hover\:text-jasper:hover {
+  color: var(--jasper);
+}
+
+.hover\:ring-pennred:hover {
+  --tw-ring-color: var(--pennred);
+}
+.hover\:bg-pennred:hover {
+  background-color: var(--pennred);
+}
+.hover\:bg-jasper:hover {
+  background-color: var(--jasper);
+}
+
+/* Opacity variants */
+.text-jet\/70 {
+  color: rgb(53 50 56 / 0.7);
+}
+.text-jet\/60 {
+  color: rgb(53 50 56 / 0.6);
+}
+.border-jet\/30 {
+  border-color: rgb(53 50 56 / 0.3);
+}
+.border-jet\/20 {
+  border-color: rgb(53 50 56 / 0.2);
+}
+.border-jet\/10 {
+  border-color: rgb(53 50 56 / 0.1);
+}
+
+.bg-silver\/30 {
+  background-color: rgb(193 180 174 / 0.3);
+}
+.bg-white\/50 {
+  background-color: rgb(255 255 255 / 0.5);
+}
+.bg-white\/80 {
+  background-color: rgb(255 255 255 / 0.8);
+}
+
+.via-pennred\/10 {
+  --tw-gradient-via: rgb(146 20 12 / 0.1);
+}
+.via-jasper\/10 {
+  --tw-gradient-via: rgb(190 90 56 / 0.1);
+}
+
+.text-silver\/70 {
+  color: rgb(193 180 174 / 0.7);
+}
+.border-caramel\/30 {
+  border-color: rgb(190 124 77 / 0.3);
+}
+
