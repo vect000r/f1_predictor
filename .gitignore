@@ -114,3 +114,6 @@ coverage.xml
 scraped_data/
 cache/
 temp/
+
+# Node modules
+node_modules/
