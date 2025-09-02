@@ -20,7 +20,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'drivers.apps.DriversConfig',
     'rest_framework',
-    'corsheaders'
+    'corsheaders',
+    'constructors.apps.ConstructorsConfig'
 ]
 
 # Middlewares
