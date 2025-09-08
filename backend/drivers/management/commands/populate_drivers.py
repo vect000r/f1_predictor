@@ -36,6 +36,5 @@ class Command(BaseCommand):
             else:
                 raise CommandError(response.status)
 
-
         except Exception as e:
             raise CommandError(f"Command failed: {e}")

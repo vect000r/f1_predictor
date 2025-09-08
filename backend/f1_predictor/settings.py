@@ -21,7 +21,8 @@ INSTALLED_APPS = [
     'drivers.apps.DriversConfig',
     'rest_framework',
     'corsheaders',
-    'constructors.apps.ConstructorsConfig'
+    'constructors.apps.ConstructorsConfig',
+    'stats.apps.StatsConfig'
 ]
 
 # Middlewares
