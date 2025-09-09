@@ -79,8 +79,9 @@ export default async function DriverDetailPage({ params }: { params: { id: strin
                     <Image
                       src={driver.headshot_url || "/placeholder.svg"}
                       alt={driver.full_name}
+                      
                       fill
-                      className="rounded-full object-cover shadow-2xl ring-8 ring-white group-hover:ring-pennred transition-all duration-500"
+                      className="rounded-full object-cover shadow-2xl ring-8 ring-white group-hover:ring-pennred transition-all duration-500 scale-300"
                       crossOrigin="anonymous"
                     />
                   </div>
