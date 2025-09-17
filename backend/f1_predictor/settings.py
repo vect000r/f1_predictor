@@ -22,7 +22,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'constructors.apps.ConstructorsConfig',
-    'stats.apps.StatsConfig'
+    'stats.apps.StatsConfig',
+    'predictions.apps.PredictionsConfig'
 ]
 
 # Middlewares

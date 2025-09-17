@@ -15,6 +15,8 @@ class DriverPointsStatViewSet(ViewSet):
             season = request.query_params.get('season')
             queryset = DriverStanding.objects.all()
 
+            
+
             if season:
                 queryset = queryset.filter(season=season)
 

@@ -100,12 +100,14 @@ class Command(BaseCommand):
                 'driver permanent number'
             )
 
-            # Validate that we have all required data
+            # Fix Verstappen's number (permanent #33 -> current #1)
+            if driver_number == 33:
+                driver_number = 1
+
             if any(value is None for value in [position, points, wins, driver_number]):
                 logger.warning(f"Missing required data for a driver in round {round_num}")
                 return False
 
-            # Create or update the standing
             standing_obj, created = DriverStanding.objects.update_or_create(
                 season=season,
                 round=round_number,
