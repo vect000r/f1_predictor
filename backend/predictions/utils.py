@@ -1,11 +1,10 @@
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import mean_absolute_error, mean_squared_error
+from sklearn.metrics import mean_absolute_error
 import xgboost as xgb
-from datetime import datetime
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -116,7 +115,7 @@ class Predictor:
     def _races_since_last_win(self, history):
         """Calculate races since last win"""
 
-        wins = history['wins'].values()
+        wins = history['wins'].values
 
         if len(wins) < 2 or wins[-1] == wins[0]:
             # no wins

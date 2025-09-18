@@ -5,5 +5,6 @@ urlpatterns = [
         path('admin/', admin.site.urls),
         path('', include('drivers.urls')),
         path('', include('constructors.urls')),
-        path('', include('stats.urls'))
+        path('', include('stats.urls')),
+        path('', include('predictions.urls'))
 ]
