@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge"
 import { Header } from "@/components/shared/header"
 import { Footer } from "@/components/shared/footer"
 import { SpeedLines } from "@/components/shared/speed-lines"
-import { Trophy, Clock, Flag, Check, Users } from "lucide-react"
+import { Trophy, Clock, Flag, Check, Users, Activity } from "lucide-react"
 import Image from "next/image"
 import { getPodiumData, getDriverData } from "@/lib/api"
 import { formatTime, formatGap } from "@/lib/format"
@@ -14,6 +14,9 @@ export default async function HomePage() {
   // Fetch driver data for each podium finisher
   const driversData = await Promise.all(podiumData.results.map((result) => getDriverData(result.driver_number)))
 
+  // Check if this is a race or practice session based on points
+  const isRace = podiumData.results.some(result => result.points > 0)
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-silver via-white to-silver font-mono">
       {/* Header */}
@@ -23,11 +26,15 @@ export default async function HomePage() {
       <main className="container mx-auto px-6 py-12">
         {/* Hero Section */}
         <div className="mb-16 animate-fade-in-up">
-          <h2 className="text-5xl font-bold text-jet mb-4">latest podium</h2>
-          <p className="text-xl text-jet/70 max-w-2xl">formula 1 race results and driver statistics</p>
+          <h2 className="text-5xl font-bold text-jet mb-4">
+            latest {isRace ? 'podium' : 'practice results'}
+          </h2>
+          <p className="text-xl text-jet/70 max-w-2xl">
+            formula 1 {isRace ? 'race results and driver statistics' : 'practice session timing'}
+          </p>
         </div>
 
-        {/* Podium Results */}
+        {/* Results */}
         <div className="max-w-5xl mx-auto mb-16">
           <div className="grid gap-6">
             {podiumData.results.map((result, index) => {
@@ -99,11 +106,21 @@ export default async function HomePage() {
                       </div>
 
                       <div className="text-right">
-                        <div
-                          className={`text-3xl font-bold ${style.accent} mb-3 group-hover:scale-110 transition-transform duration-300`}
-                        >
-                          {result.points} pts
-                        </div>
+                        {isRace ? (
+                          // Show points for races
+                          <div
+                            className={`text-3xl font-bold ${style.accent} mb-3 group-hover:scale-110 transition-transform duration-300`}
+                          >
+                            {result.points} pts
+                          </div>
+                        ) : (
+                          // Show "P" + position for practice sessions
+                          <div
+                            className={`text-3xl font-bold ${style.accent} mb-3 group-hover:scale-110 transition-transform duration-300`}
+                          >
+                            P{result.position}
+                          </div>
+                        )}
                         <div className="space-y-2 text-sm text-jet/70">
                           <div className="flex items-center space-x-2 justify-end">
                             <Clock className="h-4 w-4" />
@@ -125,8 +142,14 @@ export default async function HomePage() {
           <Card className="border border-jet/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 bg-gradient-to-br from-white to-silver/30 group">
             <CardContent className="p-8 text-center relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-500/10 to-transparent transform -skew-x-12 translate-x-full group-hover:translate-x-[-100%] transition-transform duration-1000"></div>
-              <Trophy className="h-12 w-12 text-yellow-500 mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300" />
-              <h3 className="text-xl font-bold text-jet mb-3">race winner</h3>
+              {isRace ? (
+                <Trophy className="h-12 w-12 text-yellow-500 mx-auto mb-4" />
+              ) : (
+                <Activity className="h-12 w-12 text-yellow-500 mx-auto mb-4" />
+              )}
+              <h3 className="text-xl font-bold text-jet mb-3">
+                {isRace ? 'race winner' : 'fastest lap'}
+              </h3>
               <p className="text-jet/70 font-mono">
                 {driversData[0]?.full_name || `driver #${podiumData.results[0].driver_number}`}
               </p>
@@ -136,7 +159,7 @@ export default async function HomePage() {
           <Card className="border border-jet/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 bg-gradient-to-br from-white to-silver/30 group">
             <CardContent className="p-8 text-center relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-pennred/10 to-transparent transform -skew-x-12 translate-x-full group-hover:translate-x-[-100%] transition-transform duration-1000"></div>
-              <Flag className="h-12 w-12 text-pennred mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300" />
+              <Flag className="h-12 w-12 text-pennred mx-auto mb-4" />
               <h3 className="text-xl font-bold text-jet mb-3">total laps</h3>
               <p className="text-jet/70 font-mono">{podiumData.results[0].number_of_laps}</p>
             </CardContent>
@@ -145,8 +168,10 @@ export default async function HomePage() {
           <Card className="border border-jet/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 bg-gradient-to-br from-white to-silver/30 group">
             <CardContent className="p-8 text-center relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-jasper/10 to-transparent transform -skew-x-12 translate-x-full group-hover:translate-x-[-100%] transition-transform duration-1000"></div>
-              <Clock className="h-12 w-12 text-jasper mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300" />
-              <h3 className="text-xl font-bold text-jet mb-3">race time</h3>
+              <Clock className="h-12 w-12 text-jasper mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-jet mb-3">
+                {isRace ? 'race time' : 'session time'}
+              </h3>
               <p className="text-jet/70 font-mono">{formatTime(podiumData.results[0].duration)}</p>
             </CardContent>
           </Card>
