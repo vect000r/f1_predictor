@@ -2,7 +2,6 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Header } from "@/components/shared/header"
 import { Footer } from "@/components/shared/footer"
-import { SpeedLines } from "@/components/shared/speed-lines"
 import { Users, Zap } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -28,7 +27,7 @@ export default async function DriversPage() {
       <main className="container mx-auto px-6 py-12">
         {/* Hero Section */}
         <div className="mb-16 animate-fade-in-up">
-          <h2 className="text-5xl font-bold text-jet mb-4">2024 grid</h2>
+          <h2 className="text-5xl font-bold text-jet mb-4">2025 grid</h2>
           <p className="text-xl text-jet/70 max-w-2xl">meet the drivers competing in the current formula 1 season</p>
         </div>
 
@@ -43,7 +42,7 @@ export default async function DriversPage() {
                   className="bg-gradient-to-br from-white to-silver/30 border border-jet/20 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 group relative overflow-hidden cursor-pointer"
                   style={{ animationDelay }}
                 >
-                  <SpeedLines />
+                  
                   <CardContent className="p-6 animate-fade-in-up relative z-10">
                     <div className="text-center">
                       {/* Driver Number */}

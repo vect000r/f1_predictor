@@ -2,8 +2,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Header } from "@/components/shared/header"
 import { Footer } from "@/components/shared/footer"
-import { SpeedLines } from "@/components/shared/speed-lines"
-import { Trophy, Clock, Flag, Check, Users, Activity } from "lucide-react"
+import { Trophy, Clock, Check, Activity } from "lucide-react"
 import Image from "next/image"
 import { getPodiumData, getDriverData } from "@/lib/api"
 import { formatTime, formatGap } from "@/lib/format"
@@ -66,7 +65,7 @@ export default async function HomePage() {
                   className={`border-l-4 ${style.border} ${style.bg} shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] group relative overflow-hidden`}
                   style={{ animationDelay }}
                 >
-                  <SpeedLines />
+                  
                   <CardContent className="p-8 animate-slide-in-left relative z-10">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-8">
@@ -159,7 +158,6 @@ export default async function HomePage() {
           <Card className="border border-jet/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 bg-gradient-to-br from-white to-silver/30 group">
             <CardContent className="p-8 text-center relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-pennred/10 to-transparent transform -skew-x-12 translate-x-full group-hover:translate-x-[-100%] transition-transform duration-1000"></div>
-              <Flag className="h-12 w-12 text-pennred mx-auto mb-4" />
               <h3 className="text-xl font-bold text-jet mb-3">total laps</h3>
               <p className="text-jet/70 font-mono">{podiumData.results[0].number_of_laps}</p>
             </CardContent>

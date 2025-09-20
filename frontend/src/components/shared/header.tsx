@@ -1,5 +1,5 @@
 import type React from "react"
-import { Flag, ArrowLeft, } from "lucide-react"
+import { ArrowLeft, } from "lucide-react"
 import { RacingStripe } from "./racing-stripe"
 import Link from "next/link"
 
@@ -15,7 +15,6 @@ interface HeaderProps {
 export function Header({
   title,
   subtitle,
-  icon = <Flag className="h-5 w-5 text-white" />,
   backLink,
   backText,
   currentPage = "home",
@@ -35,7 +34,6 @@ export function Header({
                 <span className="text-sm">{backText || "back"}</span>
               </Link>
             )}
-            <div className="w-10 h-10 bg-pennred rounded-lg flex items-center justify-center shadow-lg">{icon}</div>
             <div>
               <h1 className="text-2xl font-bold text-white">{title}</h1>
               <p className="text-sm text-caramel">{subtitle}</p>

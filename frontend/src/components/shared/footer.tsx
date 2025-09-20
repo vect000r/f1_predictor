@@ -16,21 +16,27 @@ export function Footer() {
             <h4 className="text-lg font-semibold text-white mb-4">navigation</h4>
             <ul className="space-y-3 text-sm text-silver">
               <li>
-                <a href="#" className="hover:text-caramel transition-colors duration-300 flex items-center space-x-2">
+                <a href="/" className="hover:text-caramel transition-colors duration-300 flex items-center space-x-2">
                   <Zap className="h-3 w-3" />
-                  <span>latest results</span>
+                  <span>home</span>
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-caramel transition-colors duration-300 flex items-center space-x-2">
+                <a href="/drivers" className="hover:text-caramel transition-colors duration-300 flex items-center space-x-2">
                   <Users className="h-3 w-3" />
-                  <span>driver standings</span>
+                  <span>drivers</span>
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-caramel transition-colors duration-300 flex items-center space-x-2">
+                <a href="/stats" className="hover:text-caramel transition-colors duration-300 flex items-center space-x-2">
                   <Flag className="h-3 w-3" />
-                  <span>race calendar</span>
+                  <span>stats</span>
+                </a>
+              </li>
+              <li>
+                <a href="/predictions" className="hover:text-caramel transition-colors duration-300 flex items-center space-x-2">
+                  <Flag className="h-3 w-3" />
+                  <span>predictions</span>
                 </a>
               </li>
             </ul>
