@@ -131,14 +131,20 @@ export function DriverPointsChart({ driverPointsMap, driversData }: DriverPoints
       {/* Chart */}
       <div className="h-96 w-full">
         <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 20 }}>
+          <LineChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 60 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#353238" opacity={0.2} />
             <XAxis
               dataKey="round"
               stroke="#353238"
               fontSize={12}
               fontFamily="monospace"
-              label={{ value: "Round", position: "insideBottom", offset: -10, style: { fill: "#353238" } }}
+              height={60}
+              label={{ 
+                value: "Round", 
+                position: "insideBottomLeft", 
+                offset: 0, 
+                style: { fill: "#353238", textAnchor: "start" } 
+              }}
             />
             <YAxis
               stroke="#353238"
@@ -156,7 +162,13 @@ export function DriverPointsChart({ driverPointsMap, driversData }: DriverPoints
               }}
               labelStyle={{ color: "#353238", fontWeight: "bold" }}
             />
-            <Legend wrapperStyle={{ fontFamily: "monospace", fontSize: "12px" }} />
+            <Legend 
+              wrapperStyle={{ 
+                fontFamily: "monospace", 
+                fontSize: "12px",
+                paddingTop: "20px"
+              }} 
+            />
 
             {Array.from(driverPointsMap.keys()).map((driverNumber, index) => {
               const driver = driversData.find((d) => d.driver_number === driverNumber)

@@ -66,7 +66,7 @@ export default async function StatsPage() {
           <Card className="bg-gradient-to-br from-white to-silver/30 border border-jet/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
             <CardContent className="p-8 text-center relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-pennred/10 to-transparent transform -skew-x-12 translate-x-full group-hover:translate-x-[-100%] transition-transform duration-1000"></div>
-              <Trophy className="h-12 w-12 text-pennred mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300" />
+              <Trophy className="h-12 w-12 text-pennred mx-auto mb-4 transition-colors duration-300" />
               <h3 className="text-xl font-bold text-jet mb-3">championship leader</h3>
               <p className="text-jet/70 font-mono">
                 {currentStandings[0]?.driver?.name_acronym || "N/A"} - {currentStandings[0]?.points || 0} pts
@@ -77,7 +77,7 @@ export default async function StatsPage() {
           <Card className="bg-gradient-to-br from-white to-silver/30 border border-jet/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
             <CardContent className="p-8 text-center relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-caramel/10 to-transparent transform -skew-x-12 translate-x-full group-hover:translate-x-[-100%] transition-transform duration-1000"></div>
-              <Users className="h-12 w-12 text-caramel mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300" />
+              <Users className="h-12 w-12 text-caramel mx-auto mb-4 transition-colors duration-300" />
               <h3 className="text-xl font-bold text-jet mb-3">active drivers</h3>
               <p className="text-jet/70 font-mono">{currentStandings.length} drivers</p>
             </CardContent>
@@ -86,7 +86,7 @@ export default async function StatsPage() {
           <Card className="bg-gradient-to-br from-white to-silver/30 border border-jet/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
             <CardContent className="p-8 text-center relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-jasper/10 to-transparent transform -skew-x-12 translate-x-full group-hover:translate-x-[-100%] transition-transform duration-1000"></div>
-              <TrendingUp className="h-12 w-12 text-jasper mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300" />
+              <TrendingUp className="h-12 w-12 text-jasper mx-auto mb-4 transition-colors duration-300" />
               <h3 className="text-xl font-bold text-jet mb-3">rounds completed</h3>
               <p className="text-jet/70 font-mono">{totalRounds} rounds</p>
             </CardContent>

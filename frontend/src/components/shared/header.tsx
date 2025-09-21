@@ -57,7 +57,7 @@ export function Header({
               drivers
             </Link>
             <Link
-              href="/stats/coming-soon"
+              href="/stats"
               className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
                 currentPage === "stats" ? "text-white" : "text-silver hover:text-white"
               }`}
