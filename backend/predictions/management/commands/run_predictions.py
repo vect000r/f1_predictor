@@ -21,8 +21,6 @@ class Command(BaseCommand):
             predictor = utils.Predictor(model_type='xgboost')
             predictor.train(standings)
 
-            predictions = {}
-
             for driver in Driver.objects.all():
                 pred = predictor.predict(standings, driver.driver_number)
                 if pred:

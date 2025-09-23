@@ -97,12 +97,11 @@ export default async function PredictionsPage() {
                   className="border border-jet/20 bg-gradient-to-r from-white to-silver/30 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] group relative overflow-hidden"
                   style={{ animationDelay }}
                 >
-                  <SpeedLines />
                   <CardContent className="p-8 animate-slide-in-left relative z-10">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-8">
                         <div className="flex items-center space-x-6">
-                          <div className="w-16 h-16 bg-jet rounded-full flex items-center justify-center text-2xl font-bold text-white shadow-lg transform group-hover:rotate-12 transition-transform duration-300">
+                          <div className="w-16 h-16 bg-jet rounded-full flex items-center justify-center text-2xl font-bold text-white shadow-lg transform transition-transform duration-300">
                             {Math.round(prediction.predicted_position)}
                           </div>
                           {driver?.headshot_url && (

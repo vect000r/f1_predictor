@@ -70,6 +70,9 @@ class ResultViewSet(viewsets.ModelViewSet):
             if response.status == 200:
                 results = json.loads(response.read().decode('utf-8'))
                 sorted_results = sorted(results, key=itemgetter('position'))
+
+
+
                 return Response({'results': sorted_results})
             else:
                 return Response({'error': 'API returned non-200 status'}, status=response.status)
