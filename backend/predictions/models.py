@@ -9,6 +9,8 @@ class Prediction(models.Model):
     current_position = models.IntegerField()
     current_points = models.IntegerField()
     confidence = models.FloatField()
+    generated_at = models.TextField(default='2025-09-24')
+    model_type = models.TextField(default='xgboost')
 
     class Meta:
         ordering = ['driver_number']

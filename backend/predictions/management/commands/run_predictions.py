@@ -18,7 +18,9 @@ class Command(BaseCommand):
         try:
             standings = list(DriverStanding.objects.all().values())
 
-            predictor = utils.Predictor(model_type='xgboost')
+            chosen_model = 'xgboost'
+
+            predictor = utils.Predictor(model_type=chosen_model)
             predictor.train(standings)
 
             for driver in Driver.objects.all():
@@ -31,7 +33,9 @@ class Command(BaseCommand):
                         predicted_total_points=pred['predicted_total_points'],
                         current_position=pred['current_position'],
                         current_points=pred['current_points'],
-                        confidence=pred['confidence']
+                        confidence=pred['confidence'],
+                        generated_at=datetime.now().isoformat(),
+                        model_type=chosen_model
                     )
                     action = f'Created prediction for driver #{driver.driver_number}' if created else f'Updated prediction for driver #{driver.driver_number}'
                     logger.info(action)

@@ -18,10 +18,13 @@ class PredictionView(APIView):
             predictions = Prediction.objects.all()
             serializer = PredictionSerializer(predictions, many=True)
 
+            data = serializer.data
+            first_prediction = data[0]
+
             return Response({
-                'predictions': serializer.data,
-                'model_type': 'XGBoost',
-                'generated_at': datetime.now().isoformat()
+                'predictions': data,
+                'model_type': first_prediction['model_type'],
+                'generated_at': first_prediction['generated_at']
             })
 
 

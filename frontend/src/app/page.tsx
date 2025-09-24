@@ -71,7 +71,7 @@ export default async function HomePage() {
                       <div className="flex items-center space-x-8">
                         <div className="flex items-center space-x-6">
                           <div
-                            className={`w-16 h-16 bg-jet rounded-full flex items-center justify-center text-2xl font-bold text-white shadow-lg transform group-hover:rotate-12 transition-transform duration-300`}
+                            className={`w-16 h-16 bg-jet rounded-full flex items-center justify-center text-2xl font-bold text-white shadow-lg transform  transition-transform duration-300`}
                           >
                             {result.position}
                           </div>
