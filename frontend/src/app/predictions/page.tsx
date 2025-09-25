@@ -173,7 +173,7 @@ export default async function PredictionsPage() {
           <Card className="border border-jet/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 bg-gradient-to-br from-white to-silver/30 group">
             <CardContent className="p-8 text-center relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-500/10 to-transparent transform -skew-x-12 translate-x-full group-hover:translate-x-[-100%] transition-transform duration-1000"></div>
-              <TrendingUp className="h-12 w-12 text-yellow-500 mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300" />
+              <TrendingUp className="h-12 w-12 text-yellow-500 mx-auto mb-4 transition-transform duration-300" />
               <h3 className="text-xl font-bold text-jet mb-3">predicted leader</h3>
               <p className="text-jet/70 font-mono">
                 {driversData[0]?.full_name || `driver #${predictions[0]?.driver_number}`}
@@ -184,7 +184,7 @@ export default async function PredictionsPage() {
           <Card className="border border-jet/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 bg-gradient-to-br from-white to-silver/30 group">
             <CardContent className="p-8 text-center relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-pennred/10 to-transparent transform -skew-x-12 translate-x-full group-hover:translate-x-[-100%] transition-transform duration-1000"></div>
-              <Brain className="h-12 w-12 text-pennred mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300" />
+              <Brain className="h-12 w-12 text-pennred mx-auto mb-4 transition-transform duration-300" />
               <h3 className="text-xl font-bold text-jet mb-3">model type</h3>
               <p className="text-jet/70 font-mono">{predictionsData.model_type}</p>
             </CardContent>
@@ -193,7 +193,7 @@ export default async function PredictionsPage() {
           <Card className="border border-jet/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 bg-gradient-to-br from-white to-silver/30 group">
             <CardContent className="p-8 text-center relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-jasper/10 to-transparent transform -skew-x-12 translate-x-full group-hover:translate-x-[-100%] transition-transform duration-1000"></div>
-              <Target className="h-12 w-12 text-jasper mx-auto mb-4 group-hover:rotate-12 transition-transform duration-300" />
+              <Target className="h-12 w-12 text-jasper mx-auto mb-4 transition-transform duration-300" />
               <h3 className="text-xl font-bold text-jet mb-3">avg confidence</h3>
               <p className="text-jet/70 font-mono">
                 {Math.round((predictions.reduce((acc, p) => acc + p.confidence, 0) / predictions.length) * 100)}%
