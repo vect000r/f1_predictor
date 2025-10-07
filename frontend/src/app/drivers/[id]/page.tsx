@@ -168,7 +168,7 @@ export default async function DriverDetailPage({ params }: { params: { id: strin
               <span>back to drivers</span>
             </Link>
             <Link
-              href="/stats/coming-soon"
+              href="/stats"
               className="flex items-center space-x-2 bg-caramel text-white px-6 py-3 rounded-lg hover:bg-jasper transition-all duration-300 hover:scale-105 shadow-lg"
             >
               <Trophy className="h-5 w-5" />
