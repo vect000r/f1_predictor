@@ -8,9 +8,9 @@ import Image from "next/image"
 import Link from "next/link"
 import { getDriverData, getLatestDriverStanding } from "@/lib/api"
 
-export default async function DriverDetailPage({ params }: { params: { id: string } }) {
-  const resolvedParams = await params;
-  const driverNumber = await resolvedParams.id; 
+export default async function DriverDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id: driverNumber } = await params;
+  
   const driver = await getDriverData(Number(driverNumber))
   const standing = await getLatestDriverStanding(Number(driverNumber))
 
