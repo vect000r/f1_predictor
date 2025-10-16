@@ -7,6 +7,8 @@ import { TrendingUp, TrendingDown, Minus, Brain, Clock, Target } from "lucide-re
 import Image from "next/image"
 import { getPredictions, getDriverData } from "@/lib/api"
 
+export const dynamic = 'force-dynamic'
+
 export default async function PredictionsPage() {
   const predictionsData = await getPredictions()
 

@@ -7,6 +7,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { getAllDrivers } from "@/lib/api"
 
+export const dynamic = 'force-dynamic'
+
 export default async function DriversPage() {
   const drivers = await getAllDrivers()
   const sortedDrivers = drivers.sort((a, b) => a.driver_number - b.driver_number)

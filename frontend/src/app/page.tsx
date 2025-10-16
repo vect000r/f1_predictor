@@ -7,6 +7,8 @@ import Image from "next/image"
 import { getPodiumData, getDriverData } from "@/lib/api"
 import { formatTime, formatGap } from "@/lib/format"
 
+export const dynamic = 'force-dynamic'
+
 export default async function HomePage() {
   const podiumData = await getPodiumData()
 
