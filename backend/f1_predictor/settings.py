@@ -61,7 +61,7 @@ WSGI_APPLICATION = 'f1_predictor.wsgi.application'
 # CORS settings
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8000",  # Local
-    "https://frontend-production-2473.up.railway.app/",  # Production
+    "https://frontend-production-2473.up.railway.app",  # Production
 ]
 
 # Database
