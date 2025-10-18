@@ -60,6 +60,7 @@ class ResultViewSet(viewsets.ModelViewSet):
     queryset = Result.objects.all().order_by('id')
     serializer_class = ResultSerializer
 
+
     @action(detail=False, methods=['get'], url_path='latest')
     def latest_top3(self, request):
         """Custom GET endpoint to fetch top 3 results from the latest session."""
@@ -69,11 +70,21 @@ class ResultViewSet(viewsets.ModelViewSet):
 
             if response.status == 200:
                 results = json.loads(response.read().decode('utf-8'))
+
+                # Handle empty results
+                if not results or len(results) == 0:
+                    logger.warning("OpenF1 API returned no results for latest session")
+                    return Response({
+                        'results': [],
+                        'message': 'No recent race results available. Check back after the next F1 session!',
+                        'has_data': False
+                    }, status=200)
+
                 sorted_results = sorted(results, key=itemgetter('position'))
-
-
-
-                return Response({'results': sorted_results})
+                return Response({
+                    'results': sorted_results,
+                    'has_data': True
+                })
             else:
                 return Response({'error': 'API returned non-200 status'}, status=response.status)
 

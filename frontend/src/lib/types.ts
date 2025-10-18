@@ -27,6 +27,7 @@ export interface PodiumResult {
 
 export interface PodiumData {
   results: PodiumResult[]
+  message?: string
 }
 
 export interface Standing {

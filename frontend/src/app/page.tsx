@@ -12,6 +12,31 @@ export const dynamic = 'force-dynamic'
 export default async function HomePage() {
   const podiumData = await getPodiumData()
 
+  if (!podiumData.results || podiumData.results.length === 0) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-silver via-white to-silver font-mono">
+        <Header title="f1-predictor" subtitle="race analytics" currentPage="home" />
+
+        <main className="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
+          <div className="flex flex-col items-center justify-center min-h-[60vh] text-center">
+            <Activity className="h-16 w-16 sm:h-20 sm:w-20 text-jet/30 mb-6 animate-pulse" />
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-jet mb-4">
+              No Recent Race Data
+            </h2>
+            <p className="text-base sm:text-lg text-jet/70 max-w-md">
+              {podiumData.message || "Check back after the next Formula 1 session!"}
+            </p>
+            <p className="text-sm text-jet/50 mt-4">
+              Race results will appear here once a session is completed.
+            </p>
+          </div>
+        </main>
+
+        <Footer />
+      </div>
+    )
+  }
+
   // Fetch driver data for each podium finisher
   const driversData = await Promise.all(podiumData.results.map((result) => getDriverData(result.driver_number)))
 
@@ -63,7 +88,7 @@ export default async function HomePage() {
                   className={`border-l-4 ${style.border} ${style.bg} shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] group relative overflow-hidden`}
                   style={{ animationDelay }}
                 >
-                  
+
                   <CardContent className="p-4 sm:p-6 lg:p-8 animate-slide-in-left relative z-10">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-0">
                       <div className="flex items-center space-x-4 sm:space-x-6 lg:space-x-8">
@@ -85,7 +110,7 @@ export default async function HomePage() {
                             </div>
                           )}
                         </div>
-                        
+
                         <div className="min-w-0 flex-1">
                           <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-jet mb-1 sm:mb-2 group-hover:text-pennred transition-colors duration-300 truncate">
                             {driver?.full_name || `driver #${result.driver_number}`}
