@@ -121,7 +121,7 @@ export function DriverStatsGrid({ driverPointsMap, driversData, currentStandings
                 {stats.driver?.headshot_url && (
                   <div className="w-16 h-16 relative">
                     <Image
-                      src={stats.driver.headshot_url || "/placeholder.svg"}
+                      src={`/drivers/${stats.driver.driver_number}.png` || "/placeholder.svg"}
                       alt={stats.driver?.full_name || `Driver #${stats.driver?.driver_number}`}
                       fill
                       className="rounded-full object-cover shadow-lg ring-2 ring-white group-hover:ring-pennred transition-all duration-300"
