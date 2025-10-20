@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge"
 import { Header } from "@/components/shared/header"
 import { Footer } from "@/components/shared/footer"
 import { SpeedLines } from "@/components/shared/speed-lines"
-import { User, Flag, Calendar, Trophy, Users, ArrowLeft } from "lucide-react"
+import { User, Calendar, Trophy, Users, ArrowLeft } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { getDriverData, getLatestDriverStanding } from "@/lib/api"
@@ -79,9 +79,8 @@ export default async function DriverDetailPage({ params }: { params: Promise<{ i
                 <div className="animate-slide-in-right">
                   <div className="w-64 h-64 mx-auto relative">
                     <Image
-                      src={driver.headshot_url || "/placeholder.svg"}
+                      src={driver.driver_number === 43 ? "/franco.png" : (driver.headshot_url || "/placeholder.svg")}
                       alt={driver.full_name}
-                      
                       fill
                       className="rounded-full object-cover shadow-2xl ring-8 ring-white group-hover:ring-pennred transition-all duration-500 scale-300"
                       crossOrigin="anonymous"
