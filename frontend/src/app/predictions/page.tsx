@@ -109,7 +109,7 @@ export default async function PredictionsPage() {
                           {driver?.headshot_url && (
                             <div className="w-20 h-20 relative">
                               <Image
-                                src={driver.headshot_url || "/placeholder.svg"}
+                                src={`/drivers/${driver.driver_number}.png` || "/placeholder.svg"}
                                 alt={driver.full_name || `Driver #${prediction.driver_number}`}
                                 fill
                                 className="rounded-full object-cover shadow-lg ring-4 ring-white group-hover:ring-pennred transition-all duration-300"

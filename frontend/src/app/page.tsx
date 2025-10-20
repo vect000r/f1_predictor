@@ -101,7 +101,7 @@ export default async function HomePage() {
                           {driver?.headshot_url && (
                             <div className="w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 relative flex-shrink-0">
                               <Image
-                                src={driver.headshot_url || "/placeholder.svg"}
+                                src={`/drivers/${driver.driver_number}.png` || "/placeholder.svg"}
                                 alt={driver.full_name || `Driver #${result.driver_number}`}
                                 fill
                                 className="rounded-full object-cover shadow-lg ring-2 sm:ring-4 ring-white group-hover:ring-pennred transition-all duration-300"
