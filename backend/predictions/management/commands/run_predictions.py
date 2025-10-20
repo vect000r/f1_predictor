@@ -28,14 +28,16 @@ class Command(BaseCommand):
                 if pred:
                     prediction_obj, created = Prediction.objects.update_or_create(
                         driver_number=driver.driver_number,
-                        predicted_position=pred['predicted_position'],
-                        predicted_points_gain=pred['predicted_points_gain'],
-                        predicted_total_points=pred['predicted_total_points'],
-                        current_position=pred['current_position'],
-                        current_points=pred['current_points'],
-                        confidence=pred['confidence'],
-                        generated_at=datetime.now().isoformat(),
-                        model_type=chosen_model
+                        defaults={
+                            'predicted_position': pred['predicted_position'],
+                            'predicted_points_gain': pred['predicted_points_gain'],
+                            'predicted_total_points': pred['predicted_total_points'],
+                            'current_position': pred['current_position'],
+                            'current_points': pred['current_points'],
+                            'confidence': pred['confidence'],
+                            'generated_at': datetime.now().isoformat(),
+                            'model_type': chosen_model
+                        }
                     )
                     action = f'Created prediction for driver #{driver.driver_number}' if created else f'Updated prediction for driver #{driver.driver_number}'
                     logger.info(action)
