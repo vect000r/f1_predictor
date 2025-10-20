@@ -55,7 +55,7 @@ export default async function DriversPage() {
                       {/* Driver Photo */}
                       <div className="w-24 h-24 mx-auto mb-4 relative">
                         <Image
-                          src={driver.driver_number === 43 ? "/franco.png" : (driver.headshot_url || "/placeholder.svg")}
+                          src={`/drivers/${driver.driver_number}.png` || "/placeholder.svg"}
                           alt={driver.full_name}
                           fill
                           className="rounded-full object-cover shadow-lg ring-4 ring-white group-hover:ring-pennred transition-all duration-300"
