@@ -79,11 +79,13 @@ export default async function DriverDetailPage({ params }: { params: Promise<{ i
                 <div className="animate-slide-in-right">
                   <div className="w-64 h-64 mx-auto relative">
                     <Image
-                      src={driver.driver_number === 43 ? "/franco.png" : (driver.headshot_url || "/placeholder.svg")}
+                      src={`/drivers/${driver.driver_number}.png`}
                       alt={driver.full_name}
                       fill
                       className="rounded-full object-cover shadow-2xl ring-8 ring-white group-hover:ring-pennred transition-all duration-500 scale-300"
-                      crossOrigin="anonymous"
+                      onError={(e) => {
+                        e.currentTarget.src = '/placeholder.svg'
+                      }}
                     />
                   </div>
                 </div>
