@@ -122,7 +122,7 @@ export function DriverStatsGrid({ driverPointsMap, driversData, currentStandings
 
             <CardContent className="space-y-4">
               <div className="flex items-center space-x-4">
-                {stats.driver?.headshot_url && (
+                {stats.driver && (
                   <div className="w-16 h-16 relative">
                     <Image
                       src={`/drivers/${stats.driver.driver_number}.png` || "/placeholder.svg"}
