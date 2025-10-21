@@ -40,7 +40,7 @@ export function DriverStatsGrid({ driverPointsMap, driversData, currentStandings
       averagePointsPerRound,
       roundsCompleted: points.length,
       trend,
-      position: currentStandings.findIndex((s) => s.driver_number === driverNumber) + 1,
+      position: 0,
     }
   }
 
@@ -48,6 +48,10 @@ export function DriverStatsGrid({ driverPointsMap, driversData, currentStandings
     .map(getDriverStats)
     .filter((stats): stats is NonNullable<typeof stats> => stats !== null)
     .sort((a, b) => b.totalPoints - a.totalPoints)
+    .map((stats, index) => ({
+      ...stats,
+      position: index + 1
+    }))
 
   const getTrendIcon = (trend: string) => {
     switch (trend) {
